@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<%- include("partials/header.ejs") %>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>create new post</title>
+  </head>
+  <body>
+    <div class="createContent">
+      <form action="/create" method="post">
+        <h1>create new post</h1>
+        <input
+          type="text"
+          name="title"
+          id="title"
+          placeholder="post title"
+          required
+        />
+        <textarea
+          name="content"
+          id="content"
+          placeholder="content"
+          required
+        ></textarea>
+        <input type="submit" value="create post" />
+        <div class="home"><a href="/">back to home</a></div>
+      </form>
+    </div>
+  </body>
+</html>
