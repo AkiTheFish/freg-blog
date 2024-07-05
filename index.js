@@ -28,7 +28,7 @@ class Post {
 function newPost(title, content, date) {
   let post = new Post(title, content, date);
   console.log(post);
-  posts.push(post);
+  posts.unshift(post);
 }
 
 application.get("/", (req, res) => {
