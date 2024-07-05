@@ -10,7 +10,7 @@ const port = 8080;
 const posts = [];
 
 application.set("view engine", "ejs");
-application.set("views", path.join(__dirname, "../views"));
+application.set("views", path.join(__dirname, "views"));
 
 application.use(express.static(__dirname + "/public/"));
 
