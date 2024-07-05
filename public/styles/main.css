@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 :root {
   font-size: 8px;
-  background-color: #202020;
+  background-color: #28262c;
+  overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -15,127 +16,229 @@
 }
 
 body {
+  position: relative;
   width: 100vw;
   height: 100vh;
 }
 
-.create {
+.ftitle {
   margin: 4rem;
-  margin-bottom: 2rem;
-  background-color: white;
-  display: inline-block;
-  border-radius: 1.5rem;
-  padding: 1.5rem;
+  color: #f9f5ff;
+  font-size: 4rem;
 }
 
+.waves {
+  position: fixed;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 80%;
+  z-index: -1;
+  left: 0;
+  bottom: 0;
+  animation: waves 0.4s ease-in-out forwards;
+}
+@keyframes waves {
+  from {
+    transform: translateY(100vh);
+  }
+  to {
+    transform: translate(0);
+  }
+}
+/* new post button */
+.create {
+  /* displays */
+  display: inline-block;
+
+  /* spacing */
+  margin: 4rem;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+
+  /* looks */
+  background-color: #c1b3ff;
+  border-radius: 1.5rem;
+  transition: 0.4s ease-in-out;
+}
+
+/* text within create post button */
 .create a {
+  /* sizing */
+  font-size: 2rem;
+  font-weight: 500;
+
+  /* text looks */
   font-family: inherit;
   text-decoration: none;
   color: black;
-  font-size: 2rem;
-  font-weight: 500;
 }
 
+.create:hover {
+  background-color: #8164ff;
+}
+
+/* navigation bar */
 .navbar {
-  list-style: none;
+  /* flex displays */
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  background-color: rgb(12, 12, 12);
+
+  /* remove list styling */
+  list-style: none;
+
+  /* looks/spacing */
+  background-color: #a982fd;
   padding: 2rem;
 }
 
-.navbar li,
-.navbar h1 {
-  margin-right: 2rem;
+/* text within navbar */
+.navbar * {
   font-family: inherit;
-  color: white;
+  color: #f9f5ff;
+  text-decoration: none;
 }
 
+.navbar li:first-child a {
+  background-color: #8164ff;
+}
+
+/* navbar items */
 .navbar li {
   font-size: 2rem;
 }
 
+/* second child of navbar */
+.navbar li:not(:last-child) a {
+  margin-right: 4rem;
+}
+
+/* navbar logo */
 .navbar h1 {
   font-size: 3rem;
   margin-right: auto;
 }
 
+/* a post */
 .post {
+  /* spacing */
   margin: 4rem;
   padding: 3rem;
-  color: white;
+
+  /* text looks */
+  color: #f9f5ff;
   font-family: inherit;
-  background-color: #151515;
+
+  /* general looks */
+  background-color: #a982fdaa;
   border-radius: 2rem;
 }
 
+/* create new post body */
+.createContent {
+  /* display */
+  display: flex;
+  width: inherit;
+  height: 80vh;
+  justify-content: center;
+  align-items: center;
+}
+
+/* title of post */
 .post h1 {
   font-size: 4rem;
   margin-bottom: 0.5rem;
 }
 
+/* content of post */
 .post p {
   margin-top: 3rem;
   font-size: 2rem;
+  overflow-wrap: break-word;
 }
 
-.createContent {
-  display: flex;
-  width: inherit;
-  height: inherit;
-  justify-content: center;
-  align-items: center;
-}
-
+/* create new post form */
 form {
-  background-color: #151515;
-  border-radius: 2rem;
-  padding: 3rem;
+  /* grid display */
   display: inline-grid;
   grid-template-columns: repeat(3, 12rem);
   grid-template-rows: 5rem 7rem 20rem 5rem;
   gap: 2rem;
+
+  /* looks */
+  background-color: #a982fdaa;
+  border-radius: 2rem;
+
+  /* spacing */
+  padding: 3rem;
 }
 
+/* children of post form */
 form * {
   padding: 1.5rem;
   border-style: none;
   border-radius: 1rem;
 }
 
+/* children of post form besides submit button */
 form input[type="text"],
 form textarea,
 form h1 {
   grid-column: span 3;
 }
 
+/* form title */
 form h1 {
+  /* text looks */
   font-family: inherit;
   font-size: 3.5rem;
-  color: white;
+  color: #f9f5ff;
+
+  /* spacing */
   margin: 0;
   padding: 0;
 }
 
+/* type content */
+textarea {
+  resize: none;
+}
+
+/* post form submit button */
 form input[type="submit"] {
   grid-column-start: 3;
+  background-color: #e2a4ff;
+  transition: 0.4s ease-in-out;
 }
 
+/* change pointer to cursor when hovering submit button */
 form input[type="submit"]:hover {
   cursor: pointer;
+  background-color: #8164ff;
 }
 
+/* back to home page button */
 form .home {
+  /* grid display */
   grid-column: span 2;
   grid-row-start: 4;
+
+  /* text looks */
   font-size: 2rem;
-  background-color: white;
+
+  /* looks */
+  background-color: #e2a4ff;
   border-radius: 1rem;
+  transition: 0.4s ease-in-out;
+
+  /* center text */
   display: flex;
   justify-content: center;
 }
 
+/* text of back to home page btn */
 form .home a {
   text-decoration: none;
   color: black;
@@ -143,10 +246,12 @@ form .home a {
   padding-top: 0;
 }
 
-textarea {
-  resize: none;
+form .home:hover {
+  cursor: pointer;
+  background-color: #8164ff;
 }
 
+/* no box outlines */
 form input[type="text"]:focus,
 form textarea:focus {
   outline: none;

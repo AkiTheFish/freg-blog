@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <%- include("partials/header.ejs") %> <%- include("partials/footer.ejs") %>
+    <div class="create" style="margin-top: 4rem">
+      <a href="#" id="admin" onclick="no()">delete all blogs</a>
+    </div>
+    <h1 id="kys" class="ftitle"></h1>
+    <script>
+      let keyPressed = false;
+      document.addEventListener("keydown", (e) => {
+        if (e.ctrlKey && e.key == "x") {
+          keyPressed = true;
+          console.log("admin key was pressed");
+          document.getElementById("admin").setAttribute("href", "/deleteAll");
+          document.getElementById("admin").setAttribute("onclick", "");
+        }
+      });
+      function no() {
+        document.getElementById("kys").innerText = "kill yourself";
+      }
+    </script>
+  </body>
+</html>

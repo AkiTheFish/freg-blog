@@ -12,7 +12,7 @@ const posts = [];
 application.set("view engine", "ejs");
 application.set("views", path.join(__dirname, "views"));
 
-application.use(express.static(__dirname + "/public/"));
+application.use(express.static(__dirname + "/public"));
 
 application.use(express.json());
 application.use(express.urlencoded({ extended: true }));
@@ -33,11 +33,20 @@ function newPost(title, content, date) {
 
 application.get("/", (req, res) => {
   res.render("main.ejs", { posts: posts });
-  console.log(posts.length);
 });
 
-application.get("/create", (req, res) => {
-  res.render("create.ejs");
+application.get("/create", (req, res) => res.render("create.ejs"));
+
+application.get("/about", (req, res) => res.render("about.ejs"));
+
+application.get("/contact", (req, res) => res.render("contact.ejs"));
+
+application.get("/help", (req, res) => res.render("help.ejs"));
+
+application.get("/deleteAll", (req, res) => {
+  posts.splice(0, posts.length);
+  console.log(`all posts successfuly deleted`);
+  res.redirect("/");
 });
 
 application.post("/create", (req, res) => {
